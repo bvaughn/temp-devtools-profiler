@@ -149,7 +149,7 @@ const Flamegraph = ({
   if (selectedFiberID !== null) {
     let index = lazyIDsByDepth.length;
     while (lazyIDToDepthMap[selectedFiberID] === undefined && index < flameGraphDepth) {
-      calculateFibersAtDepth(flamegraphData, flamegraphData.flameGraphDepth, snapshot);
+      calculateFibersAtDepth(flamegraphData, index, snapshot);
       index++;
     }
   }
@@ -211,7 +211,7 @@ class ListItem extends PureComponent<any, void> {
     // We can ignore those values as well.
     const top = parseInt(style.top, 10);
 
-    const ids = calculateFibersAtDepth(flamegraphData, flamegraphData.flameGraphDepth, snapshot);
+    const ids = calculateFibersAtDepth(flamegraphData, index, snapshot);
 
     let focusedNodeIndex = 0;
     let focusedNodeX = 0;
