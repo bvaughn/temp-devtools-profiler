@@ -6,7 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { List, Map as ImmutableMap } from 'immutable';
 import {store} from './frontend/decorate';
 
-fetch('/data.json')
+fetch('/small-data.json')
   .then(response => response.json())
   .then(snapshots => {
     const roots = new Set();
